@@ -1,43 +1,71 @@
 import React, { useState } from "react";
-import axios from "axios";
+import EditMenu from "./EditMenu";
+import { axiosWithAuth } from "../helpers/axiosWithAuth";
 
 const initialColor = {
   color: "",
-  code: { hex: "" }
+  code: { hex: "" },
 };
 
 const ColorList = ({ colors, updateColors }) => {
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
 
-  const editColor = color => {
+  const editColor = (color) => {
     setEditing(true);
     setColorToEdit(color);
   };
 
-  const saveEdit = e => {
+  const saveEdit = (e) => {
     e.preventDefault();
-
+    axiosWithAuth()
+      .put(`api/colors/${colorToEdit.id}`, colorToEdit)
+      .then((response) => {
+        console.log(response.data);
+        updateColors([...colors, response.data]);
+        setEditing(false);
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
   };
 
-  const deleteColor = color => {
+  const deleteColor = (color) => {
+    axiosWithAuth()
+      .delete(`api/colors/${color.id}`)
+      .then((response) => {
+        updateColors(colors.filter((search) => search.id !== color.id));
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
     <div className="colors-wrap">
       <p>colors</p>
       <ul>
-        {colors.map(color => <Color key={color.id} editing={editing} color={color} editColor={editColor} deleteColor={deleteColor}/>)}
+        {colors.map((color) => (
+          <Color
+            key={color.id}
+            editing={editing}
+            color={color}
+            editColor={editColor}
+            deleteColor={deleteColor}
+          />
+        ))}
       </ul>
-      
-      { editing && <EditMenu colorToEdit={colorToEdit} saveEdit={saveEdit} setColorToEdit={setColorToEdit} setEditing={setEditing}/> }
 
+      {editing && (
+        <EditMenu
+          colorToEdit={colorToEdit}
+          saveEdit={saveEdit}
+          setColorToEdit={setColorToEdit}
+          setEditing={setEditing}
+        />
+      )}
     </div>
   );
 };
 
 export default ColorList;
-
-//Task List:
-//1. Complete the saveEdit functions by making a put request for saving colors. (Think about where will you get the id from...)
-//2. Complete the deleteColor functions by making a delete request for deleting colors.
