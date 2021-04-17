@@ -115,8 +115,10 @@ These goals may or may not be things you have learned in this module but they bu
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. Add your answers to the questions within `interview_answers.md` file. These will not be counted as a part of your sprint score but will be helpful for preparing you for your endorsement interview, and enhancing overall understanding.
 
 1. Explain what a token is used for.
+   A token is used mainly for authentication. If you have the correct token you will be able to access certain things that require that token.
 2. What steps can you take in your web apps to keep your data secure?
+   I would make sure that I impemented tokens and protected routes. That way you only get to certain things if you need to be there.
 3. Describe how web servers work.
+   Web servers work by having software that listens for certain connections and offer up services. For instance a web server listens for http or https connections and then serves up a webpage.
 4. Which HTTP methods can be mapped to the CRUD acronym that we use when interfacing with APIs/Servers.
-
-testing codegrade
+   The HTTP methods mapped to CRUD would be POST, GET, PUT, and DELETE
