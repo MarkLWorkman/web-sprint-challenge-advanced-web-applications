@@ -18,46 +18,46 @@ const Login = () => {
     });
   };
 
-  const loginAttempt = event => {
+  const loginAttempt = (event) => {
     event.preventDefault();
     axios
-    .post(`${baseURL}/login` credentials)
-    .then(response => {
-      console.log(response.data);
-      localStorage.setItem('token', response.data.payload);
-      push('/colors');
-    })
-    .catch(error => {
-      console.log(error.response);
-    });
+      .post(`${baseURL}/login`, credentials)
+      .then((response) => {
+        console.log(response.data);
+        localStorage.setItem("token", response.data.payload);
+        push("/colors");
+      })
+      .catch((error) => {
+        console.log(error.response);
+      });
   };
 
-  const error = {error.response};
+  const error = "";
   //replace with error state
 
   return (
     <div>
       <h1>Welcome to the Bubble App!</h1>
       <div data-testid="loginForm" className="login-form"></div>
-        <form onSubmit={loginAttempt}>
-        <label htmlFor='username'> Username: </label>
+      <form onSubmit={loginAttempt}>
+        <label htmlFor="username"> Username: </label>
         <input
-          type='text'
-          name='username'
+          type="text"
+          name="username"
           value={credentials.username}
           onChange={handleChange}
-          data-testid='username'
+          data-testid="username"
         />
-        <label htmlFor='password'> Password: </label>
+        <label htmlFor="password"> Password: </label>
         <input
-          type='password'
-          name='password'
+          type="password"
+          name="password"
           value={credentials.password}
           onChange={handleChange}
-          data-testid='password'
-        />  
+          data-testid="password"
+        />
         <button> LogIn!!! </button>
-        </form>
+      </form>
       <p data-testid="errorMessage" className="error">
         {error}
       </p>

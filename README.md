@@ -20,22 +20,22 @@ In this project you will create a login page and request a token from the server
 
 ### Task 1: Project Setup
 
-- [ ] Fork and clone this repository.
-- [ ] Create a new branch with the
+- [x] Fork and clone this repository.
+- [x] Create a new branch with the
 
-* [ ] Create a new branch: git checkout -b `<firstName-lastName>`.
-* [ ] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
-* [ ] Push commits: git push origin `<firstName-lastName>`.
+* [x] Create a new branch: git checkout -b `<firstName-lastName>`.
+* [x] Implement the project on your newly created `<firstName-lastName>` branch, committing changes regularly.
+* [x] Push commits: git push origin `<firstName-lastName>`.
 
-- [ ] **RUN** `npm install` to install your dependencies.
-- [ ] **RUN** `npm start` to start your application.
+- [x] **RUN** `npm install` to install your dependencies.
+- [x] **RUN** `npm start` to start your application.
 
 ### Task 2: CodeGrade Setup
 
-- [ ] Open the assignment in Canvas and click on the "Set up git" option.
-- [ ] Follow instructions to set up Codegrade's Webhook and Deploy Key, making sure your deployment is set to your `<firstName-lastName>`.
-- [ ] Push your first commit: `git commit --allow-empty -m "first commit" && git push`
-- [ ] Check to see that Codegrade has accepted your git submission.
+- [x] Open the assignment in Canvas and click on the "Set up git" option.
+- [x] Follow instructions to set up Codegrade's Webhook and Deploy Key, making sure your deployment is set to your `<firstName-lastName>`.
+- [x] Push your first commit: `git commit --allow-empty -m "first commit" && git push`
+- [x] Check to see that Codegrade has accepted your git submission.
 
 ### Task 3: Project Requirements
 
@@ -46,20 +46,20 @@ Your finished project must include all of the following requirements. **Unlike o
 > _Build a login form to authenticate your users along with all the components and utilities needed to support authentication._
 
 - [ ] In `Login.js`, build all UI and state functionality needed to capture a username and password.
-- [ ] **Make sure that the input for your username and password includes the data-testid="username" and data-testid="password" attributes. These are needed for codegrade testing.**
+- [x] **Make sure that the input for your username and password includes the data-testid="username" and data-testid="password" attributes. These are needed for codegrade testing.**
 - [ ] Build in functionality that would allow an error to be displayed in the provided p tag if either the username or password is incorrect.
-- [ ] Construct an AXIOS request that retrieves an auth token from the server when the username `Lambda` and the password `i<3Lambd4` is passed into the request.
-- [ ] Save the token to localStorage.
-- [ ] Build a `axiosWithAuth` module to create an instance of axios with the authentication header.
-- [ ] Build a `PrivateRoute` component and use it to protect the route that renders the `BubblesPage` component.
+- [x] Construct an AXIOS request that retrieves an auth token from the server when the username `Lambda` and the password `i<3Lambd4` is passed into the request.
+- [x] Save the token to localStorage.
+- [x] Build a `axiosWithAuth` module to create an instance of axios with the authentication header.
+- [x] Build a `PrivateRoute` component and use it to protect the route that renders the `BubblesPage` component.
 - [ ] In `App.js`, build the backend to the logout button. When pressed, the authentication token within localStorage should be removed.
 
 #### Consuming the API
 
 > _Add in the axios requests and state changes needed to connect our api to the web application. Consider the effect of authentication on your api requests._
 
-- [ ] When `BubblePages` mounts, make a GET request to fetch the color data for your bubbles.
-- [ ] In `ColorList.js`, complete the `saveEdit` and `deleteColor` functions to make API requests for to editing and delete data.
+- [x] When `BubblePages` mounts, make a GET request to fetch the color data for your bubbles.
+- [x] In `ColorList.js`, complete the `saveEdit` and `deleteColor` functions to make API requests for to editing and delete data.
 - [ ] Watch and enjoy as your app responds to updates in the data. Check out `Bubbles.js` to see how this is built.
 
 #### Testing
