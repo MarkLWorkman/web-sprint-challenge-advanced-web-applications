@@ -29,10 +29,11 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error.response);
+        setError(error.response);
       });
   };
 
-  const error = "";
+  const [error, setError] = useState();
   //replace with error state
 
   return (
