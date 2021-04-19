@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import EditMenu from "./EditMenu";
+import EditMenu from "./EditMenu.js";
+import axios from "axios";
 import { axiosWithAuth } from "../helpers/axiosWithAuth";
 
 const initialColor = {
@@ -18,26 +19,39 @@ const ColorList = ({ colors, updateColors }) => {
 
   const saveEdit = (e) => {
     e.preventDefault();
+    console.log(colorToEdit);
     axiosWithAuth()
-      .put(`api/colors/${colorToEdit.id}`, colorToEdit)
-      .then((response) => {
-        console.log(response.data);
-        updateColors([...colors, response.data]);
-        setEditing(false);
+      .put(`/colors/${colorToEdit.id}`, colorToEdit)
+      .then((res) => {
+        console.log(res);
+        updateColors(
+          colors.map((color) => {
+            if (color.id === res.data.id) {
+              return res.data;
+            } else {
+              return color;
+            }
+          })
+        );
       })
-      .catch((error) => {
-        console.log(error.response);
+      .catch((err) => {
+        console.log(err.response);
       });
   };
 
   const deleteColor = (color) => {
+    console.log(color);
     axiosWithAuth()
-      .delete(`api/colors/${color.id}`)
-      .then((response) => {
-        updateColors(colors.filter((search) => search.id !== color.id));
+      .delete(`/colors/${color.id}`)
+      .then((res) => {
+        console.log(res);
+        console.log(colors);
+        updateColors(
+          colors.filter((colorToDelete) => colorToDelete.id !== color.id)
+        );
       })
-      .catch((error) => {
-        console.log(error);
+      .catch((err) => {
+        console.log(err.response);
       });
   };
 
