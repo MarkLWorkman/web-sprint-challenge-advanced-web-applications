@@ -45,7 +45,7 @@ Your finished project must include all of the following requirements. **Unlike o
 
 > _Build a login form to authenticate your users along with all the components and utilities needed to support authentication._
 
-- [ ] In `Login.js`, build all UI and state functionality needed to capture a username and password.
+- [x] In `Login.js`, build all UI and state functionality needed to capture a username and password.
 - [x] **Make sure that the input for your username and password includes the data-testid="username" and data-testid="password" attributes. These are needed for codegrade testing.**
 - [ ] Build in functionality that would allow an error to be displayed in the provided p tag if either the username or password is incorrect.
 - [x] Construct an AXIOS request that retrieves an auth token from the server when the username `Lambda` and the password `i<3Lambd4` is passed into the request.

@@ -46,16 +46,26 @@ const ColorList = ({ colors, updateColors }) => {
       <p>colors</p>
       <ul>
         {colors.map((color) => (
-          <Color
-            key={color.id}
-            editing={editing}
-            color={color}
-            editColor={editColor}
-            deleteColor={deleteColor}
-          />
+          <li key={color.color} onClick={() => editColor(color)}>
+            <span>
+              <span
+                className="delete"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  deleteColor(color);
+                }}
+              >
+                x
+              </span>{" "}
+              {color.color}
+            </span>
+            <div
+              className="color-box"
+              style={{ backgroundColor: color.code.hex }}
+            />
+          </li>
         ))}
       </ul>
-
       {editing && (
         <EditMenu
           colorToEdit={colorToEdit}
