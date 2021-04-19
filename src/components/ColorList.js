@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import EditMenu from "./EditMenu.js";
 import axios from "axios";
-import { axiosWithAuth } from "../helpers/axiosWithAuth";
+import { axiosWithAuth } from "../helpers/axiosWithAuth.js";
 
 const initialColor = {
   color: "",
@@ -26,7 +26,7 @@ const ColorList = ({ colors, updateColors }) => {
         console.log(res);
         updateColors(
           colors.map((color) => {
-            if (color.id === res.data.id) {
+            if (color.id == res.data.id) {
               return res.data;
             } else {
               return color;
