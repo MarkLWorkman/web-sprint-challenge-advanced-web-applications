@@ -7,7 +7,7 @@ const Color = ({ color, editing, editColor, deleteColor }) => {
   };
 
   return (
-    <li data-testid="/color/i" onClick={() => editColor(color)}>
+    <li data-testid="color" onClick={() => editColor(color)}>
       <span>
         <span className="delete" onClick={handleClick}>
           x
